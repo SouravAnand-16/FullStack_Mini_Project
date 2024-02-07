@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const path = require("path");
 const connection = require("./connection")
 const router = require("./routes/user");
@@ -8,6 +9,7 @@ const validator = require("./middleware/validator");
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "public")));
