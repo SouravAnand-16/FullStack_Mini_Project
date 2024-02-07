@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const connection = require("./connection")
 const router = require("./routes/user");
+const validator = require("./middleware/validator");
 
 const app = express();
 

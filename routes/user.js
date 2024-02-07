@@ -2,13 +2,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const UserModel = require("../models/UserModel");
+const validator = require("../middleware/validator");
 const router = express.Router() ;
 
 router.get("/signup",async(req,res)=>{
     res.sendFile(path.join(__dirname,"..","public","signup.html"));
 })
 
-router.post("/register",async(req,res)=>{
+router.post("/signup",validator,async(req,res)=>{
    try{
         const { confirmpassword, ...payload } = req.body;
         console.log(payload);
