@@ -4,11 +4,11 @@ const path = require("path");
 const UserModel = require("../models/UserModel");
 const router = express.Router() ;
 
-router.get("/",async(req,res)=>{
+router.get("/signup",async(req,res)=>{
     res.sendFile(path.join(__dirname,"..","public","signup.html"));
 })
 
-router.post("/",async(req,res)=>{
+router.post("/register",async(req,res)=>{
    try{
         const { confirmpassword, ...payload } = req.body;
         console.log(payload);
